@@ -1,26 +1,52 @@
 alias migrate="rake db:migrate db:test:prepare"
 alias remigrate="rake db:migrate && rake db:migrate:redo && rake db:schema:dump db:test:prepare"
-alias gadd="git add -u && git add . && git status"
-alias svnprecommit="git svn rebase && rake features && rake test"
-alias hgprecommit="hg pull && rake features && rake test"
-alias cuc="cucumber -r features"
+alias cuc="bundle exec cucumber -r features"
 alias g="git"
-alias tu="ruby_test unit"
-alias tf="ruby_test functional"
-alias ti="ruby_test integration"
-alias th="ruby_test unit/helpers"
+alias tu="bundle exec ruby -Itest"
 alias su="ruby_tu_rs unit"
-alias spm="ruby_spec models"
-alias spc="ruby_spec controllers"
-alias spv="ruby_spec views"
-alias sph="ruby_spec helpers"
-alias hgdi="hg diff --color=always --git | less -r"
-alias hgrev="hg revert --no-backup"
-alias hgclean="hg status | grep -e '^\\?' | sed 's/^\\?//' | xargs -t rm -f"
-alias gi="sudo gem install"
-alias giv="sudo gem install -v"
-alias gci="git pull --rebase && rake && git push"
-alias wip="rake cucumber:wip"
-alias stage="rake git:push:staging"
-alias prod="rake git:push:production"
-alias gadd="git add . ; git add -u . ; git st"
+alias sp="bundle exec rspec"
+alias wip="bundle exec cucumber -p wip"
+alias rerun="bundle exec cucumber -p rerun"
+alias tre="echo 'Restarting Application ...'; touch tmp/restart.txt"
+alias e="mvim"
+alias pas="passenger start"
+alias be="bundle exec"
+alias ec2="ssh -l ubuntu -i ~/.ssh/sikachu-us-east.pem"
+
+# Git
+alias ga='git add'
+alias gaa='git add .'
+alias gb='git branch'
+alias gba='git branch -a'
+alias gc='git commit -v'
+alias gca='git commit -a'
+alias gcam='git commit -a -m'
+alias gcf='git commit -a --amend'
+alias gcfh='git commit --amend -C HEAD'
+alias gcm='git commit -m'
+alias gco='git checkout'
+alias gcom='gco master'
+alias gcow='gco work'
+gd() { git diff $1 | mvim -R - }
+alias gdep='gpo && cap deploy'
+alias gdepm='gpo && cap deploy:migrations'
+alias gm='git merge'
+alias gp='git push'
+alias gpo='git push origin'
+alias gpom='gpo master'
+alias gpp='echo "=> Pulling changes from origin repository ..." && git pull origin master --rebase && echo "Pushing changes in branch master to origin repository ..." && git push origin master'
+alias gps='git push sikachu'
+alias gpu='git pull'
+alias gpuo='git pull origin'
+alias gpur='git pull --rebase'
+alias gr='git rebase'
+alias gra='git rebase --abort'
+alias grc='git rebase --continue'
+alias gs='git status'
+alias gsu='git submodule init; git submodule update'
+#git pull from
+gpf() { git pull $1 master; }
+gpfb() { git pull $1 $2; }
+gcot() { gb --remotes --no-color | grep "^[[:space:]]\+origin\/$1" | head -n 1 | awk -F"/" '{ print $2 }' | xargs git checkout }
+
+xcurl(){ curl -H "Content-Type: text/xml" $1 | ruby -e "require 'rubygems'; require 'nokogiri'; puts Nokogiri::XML(STDIN.read)" }

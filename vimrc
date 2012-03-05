@@ -12,6 +12,10 @@ set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
 
+au WinLeave * set nocursorline
+au WinEnter * set cursorline
+set cursorline
+
 " Don't use Ex mode, use Q for formatting
 map Q gq
 
@@ -81,21 +85,21 @@ let mapleader = "\\"
 map <Leader>R :e doc/README_FOR_APP<CR>
 
 " Leader shortcuts for Rails commands
-map <Leader>m :Rmodel 
-map <Leader>c :Rcontroller 
-map <Leader>v :Rview 
-map <Leader>u :Runittest 
-map <Leader>f :Rfunctionaltest 
-map <Leader>tm :RTmodel 
-map <Leader>tc :RTcontroller 
-map <Leader>tv :RTview 
-map <Leader>tu :RTunittest 
-map <Leader>tf :RTfunctionaltest 
-map <Leader>sm :RSmodel 
-map <Leader>sc :RScontroller 
-map <Leader>sv :RSview 
-map <Leader>su :RSunittest 
-map <Leader>sf :RSfunctionaltest 
+map <Leader>m :Rmodel
+map <Leader>c :Rcontroller
+map <Leader>v :Rview
+map <Leader>u :Runittest
+map <Leader>f :Rfunctionaltest
+map <Leader>tm :RTmodel
+map <Leader>tc :RTcontroller
+map <Leader>tv :RTview
+map <Leader>tu :RTunittest
+map <Leader>tf :RTfunctionaltest
+map <Leader>sm :RSmodel
+map <Leader>sc :RScontroller
+map <Leader>sv :RSview
+map <Leader>su :RSunittest
+map <Leader>sf :RSfunctionaltest
 
 " Hide search highlighting
 map <Leader>h :set invhls <CR>
@@ -138,6 +142,8 @@ set list listchars=tab:»·,trail:·
 " Edit routes
 command! Rroutes :e config/routes.rb
 command! RTroutes :tabe config/routes.rb
+command! Rschema :e db/schema.rb
+command! RTschema :tabe db/schema.rb
 
 " Local config
 if filereadable(".vimrc.local")
@@ -155,7 +161,29 @@ highlight NonText guibg=#060606
 highlight Folded  guibg=#0A0A0A guifg=#9090D0
 
 " Numbers
-set number
+if v:version > 702
+  set relativenumber
+
+  " http://stackoverflow.com/questions/762515/vim-remap-key-to-toggle-line-numbering
+  " source: http://stackoverflow.com/questions/4387210/vim-how-to-map-two-tasks-under-one-shortcut-key
+  let g:relativenumber = 0
+  set nonumber
+  set relativenumber
+  function! ToggleRelativeNumber()
+    if g:relativenumber == 0
+      let g:relativenumber = 1
+      set number
+      set norelativenumber
+    else
+      let g:relativenumber = 0
+      set nonumber
+      set relativenumber
+    endif
+  endfunction
+  map <C-L> :call ToggleRelativeNumber()<cr>
+else
+  set number
+endif
 set numberwidth=5
 
 " Snippets are activated by Shift+Tab
@@ -171,6 +199,29 @@ set complete=.,t
 set ignorecase
 set smartcase
 
+" disable mouse
+set mouse-=a
+
 " Tags
 let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 
+" Highlight Ruby 1.8.x hash rocket
+highlight ObsoleteHashRocket ctermbg=red guibg=red
+au ColorScheme * highlight ObsoleteHashRocket guibg=red
+au BufEnter * match ObsoleteHashRocket /=>/
+au InsertEnter * match ObsoleteHashRocket /=>/
+au InsertLeave * match ObsoleteHashRocket /=>/
+
+" Highlight trailing space
+highlight ExtraWhitespace ctermbg=red guibg=red
+au ColorScheme * highlight ExtraWhitespace guibg=red
+au BufEnter * match ExtraWhitespace /\s\+$/
+au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+au InsertLeave * match ExtraWhitespace /\s\+$/
+
+" Add function for remove tailing whitespaces
+command! CleanupTrailingSpaces :%s/\s\+$//ge | :nohlsearch
+
+" au InsertLeave * :s/:\([a-z0-9?!_]\+\)\s*=>/\1:/ige
+
+set colorcolumn=81

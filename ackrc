@@ -1,0 +1,5 @@
+--type-set=cucumber=.feature
+--type-set=scss=.scss
+--type-set=haml=.haml
+--type-set=textile=.textile
+--type-add=ruby=.rake,.rsel,.sass,.thor,.erb,Gemfile
