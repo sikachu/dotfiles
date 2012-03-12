@@ -1,3 +1,4 @@
+-i
 --type-set=cucumber=.feature
 --type-set=scss=.scss
 --type-set=haml=.haml
