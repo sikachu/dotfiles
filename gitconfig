@@ -36,26 +36,6 @@
   cob = checkout -b
   rmb = !sh -c 'git branch -D $1 && git push origin :$1' -
   pl = pull
-  pul = pull
-  pull = pull
-  pulll = pull
-  pullll = pull
-  pulllll = pull
-  pullllll = pull
-  pulllllll = pull
-  pullllllll = pull
-  pulllllllll = pull
-  pullllllllll = pull
-  pulllllllllll = pull
-  pullllllllllll = pull
-  pulllllllllllll = pull
-  pullllllllllllll = pull
-  pulllllllllllllll = pull
-  pullllllllllllllll = pull
-  pulllllllllllllllll = pull
-  pullllllllllllllllll = pull
-  pulllllllllllllllllll = pull
-  pullllllllllllllllllll = pull
 
 [user]
   name = Harold Giménez

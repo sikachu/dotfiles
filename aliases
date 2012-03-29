@@ -35,3 +35,12 @@ alias hr="heroku run"
 alias hl="heroku logs --tail"
 alias hpsql="heroku pg:psql"
 alias hb="heroku run bash"
+
+git() {
+  if [[ $1 =~ '^pul+$' ]]; then
+    shift
+    command git pull $@;
+  else
+    command git $@;
+  fi
+}
