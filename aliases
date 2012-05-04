@@ -1,5 +1,5 @@
-alias migrate="rake db:migrate db:test:prepare"
-alias remigrate="rake db:migrate && rake db:migrate:redo && rake db:schema:dump db:test:prepare"
+alias migrate="bundle exec rake db:migrate db:test:prepare"
+alias remigrate="bundle exec rake db:migrate && bundle exec rake db:migrate:redo && bundle exec rake db:schema:dump db:test:prepare"
 alias cuc="bundle exec cucumber -r features"
 alias g="git"
 alias tu="bundle exec ruby -Itest"
@@ -30,6 +30,7 @@ alias gcow='gco work'
 gd() { git diff $1 | mvim -R - }
 alias gdep='gpo && cap deploy'
 alias gdepm='gpo && cap deploy:migrations'
+alias gfo='git fetch origin'
 alias gm='git merge'
 alias gp='git push'
 alias gpo='git push origin'
@@ -49,4 +50,17 @@ gpf() { git pull $1 master; }
 gpfb() { git pull $1 $2; }
 gcot() { gb --remotes --no-color | grep "^[[:space:]]\+origin\/$1" | head -n 1 | awk -F"/" '{ print $2 }' | xargs git checkout }
 
+# Heroku
+alias -g rstaging='--remote staging'
+alias -g rproduction='--remote production'
+
 xcurl(){ curl -H "Content-Type: text/xml" $1 | ruby -e "require 'rubygems'; require 'nokogiri'; puts Nokogiri::XML(STDIN.read)" }
+
+git() {
+  if [[ $1 =~ '^pul+$' ]]; then
+    shift
+    command git pull $@;
+  else
+    command git $@;
+  fi
+}
