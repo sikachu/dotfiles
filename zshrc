@@ -81,6 +81,9 @@ export HISTFILE=~/.zsh_history
 # Setup RVM
 if [[ -s ~/.rvm/scripts/rvm ]] ; then source ~/.rvm/scripts/rvm ; fi
 
+# Setup rbenv
+if [[ -d ~/.rbenv ]]; then eval "$(~/.rbenv/bin/rbenv init - zsh)"; fi
+
 # Set python paths
 export PYTHONPATH="/opt/homebrew/lib/python3.9/site-packages"
 
