@@ -1,0 +1,75 @@
+# Set current prompt based on git branch, also makes it RED if we are on main/master
+git_prompt_info() {
+  ref=$(git symbolic-ref HEAD 2> /dev/null)
+  if [[ -n $ref ]]; then
+    if [[ "${ref#refs/heads/}" == "master" ]] || [[ "${ref#refs/heads/}" == "main" ]]; then
+      echo "[%{$fg_bold[red]%}${ref#refs/heads/}%{$reset_color%}]"
+    else
+      echo "[%{$fg_bold[green]%}${ref#refs/heads/}%{$reset_color%}]"
+    fi
+  fi
+}
+
+# makes color constants available
+autoload -U colors
+colors
+
+# enable colored output from ls, etc
+export CLICOLOR=1
+
+# expand functions in the prompt
+setopt prompt_subst
+
+# prompt
+short_prompt() {
+  echo '[${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%~%{$reset_color%}] '
+}
+long_prompt() {
+  ref=$(git symbolic-ref HEAD 2> /dev/null)
+  if [[ -n $ref ]]; then
+    echo "┣ [${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%~%{$reset_color%}] "
+    echo "┗ $(git_prompt_info) "
+  else
+    echo "┗ [${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%~%{$reset_color%}] "
+  fi
+}
+
+# Show green/yellow/red color based on k8s cluster name
+function kb_cluster_color() {
+  if [[ $1 == *"development"* ]]; then
+    echo "$fg[green]$1"
+  elif [[ $1 == *"staging"* ]]; then
+    echo "$fg[yellow]$1"
+  else
+    echo $1
+  fi
+}
+export KUBE_PS1_CLUSTER_FUNCTION=kb_cluster_color
+source "/opt/homebrew/opt/kube-ps1/share/kube-ps1.sh"
+kubeoff
+
+# Set fancy prompt
+export PS1='┏ (— ＿＿＿—  X)$(kube_ps1)
+$(long_prompt)'
+
+# These function calls stop prompt from deleting the first line when
+# opening a new tab.
+precmd() {
+    precmd() {
+        echo
+    }
+}
+
+# This causes zsh to delete the line and replace with short prompt after
+# pressing a return key.
+del-prompt-accept-line() {
+    OLD_PROMPT="$PROMPT"
+    PROMPT="─ $(short_prompt)"
+    zle reset-prompt
+    PROMPT="$OLD_PROMPT"
+    zle accept-line
+}
+zle -N del-prompt-accept-line
+bindkey "^M" del-prompt-accept-line
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
