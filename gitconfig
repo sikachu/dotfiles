@@ -1,0 +1,25 @@
+[alias]
+	cp = cherry-pick
+	cleanup = "!git branch -vv | grep ': gone]' | cut -f 3 -d ' ' | xargs -n 1 git branch -D"
+	cl = "!git branch -vv | grep ': gone]' | cut -f 3 -d ' ' | xargs -n 1 git branch -D"
+	staged = "diff --staged"
+	ignore = "update-index --assume-unchanged"
+	unignore = "update-index --no-assume-unchanged"
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[core]
+	excludesfile = ~/.gitignore
+[rerere]
+	enabled = 1
+[push]
+	default = current
+[rebase]
+	autosquash = true
+[fetch]
+	prune = true
+[pull]
+	ff = only
+[init]
+	defaultBranch = main
