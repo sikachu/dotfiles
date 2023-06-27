@@ -1,0 +1,10 @@
+*.log
+*.snap
+*.sql
+*.svg
+/tags
+coverage/index.html
+tmp/cache/*
+tmp/capybara/*
+vendor/assets/javascripts/*
+zxcvbn.js
