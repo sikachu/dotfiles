@@ -1,0 +1,2 @@
+# Include all files in ~/.ssh/config.d directory
+Include config.d/*
