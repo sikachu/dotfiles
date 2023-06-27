@@ -1,0 +1,185 @@
+# vim: set filetype=bash:
+
+# aliases
+alias ra="source ~/.aliases"
+alias ea="mvim ~/.aliases"
+
+# rcm
+alias rcm="rcm -v"
+
+# zsh
+alias ezsh="mvim ~/.zshrc"
+
+# General
+alias agq='ag -Q'
+alias e="mvim"
+p() {
+  cd "$HOME/Developer/$1"
+}
+_projects() {
+  compadd `ls -1 "$HOME/Developer"`
+}
+compdef _projects p
+alias vcat='vimcat'
+
+# Foolproof
+alias sl="ls"
+alias -g pdos="pods"
+
+# Git
+alias g="git"
+alias ga='git add'
+alias gaa='git add -A .'
+alias gb='git branch'
+alias gba='git branch -a'
+alias gc='git commit -v'
+alias gfu='git commit --fixup'
+alias gca='git commit -a'
+alias gcam='git commit -a -m'
+alias gcf='git commit --amend --verbose'
+alias gcfh='git commit --amend -C HEAD'
+alias gclean='git cleanup'
+alias gcl='git cleanup'
+alias gcm='git commit -m'
+alias gco='git checkout'
+compdef _git gco=git-checkout
+alias gcb='git checkout -b'
+alias gre='git restore'
+compdef _git gre=git-restore
+alias gcom='gco main || gco master'
+alias gd='git diff'
+alias gf='git fetch'
+alias gfo='git fetch origin'
+alias gl='git log'
+alias gm='git merge'
+alias gp='git push'
+alias gpo='git push origin'
+alias gpom='gpo main'
+alias gpp='echo "=> Pulling changes from remote ..." && git pull --rebase && echo "=> Pushing changes to remote ..." && git push'
+alias gps='git push sikachu'
+alias gpu='git pull'
+alias gpuo='git pull origin'
+alias gpur='git pull --rebase'
+alias gr='git rebase'
+alias gra='git rebase --abort'
+alias grc='git rebase --continue'
+alias gres='git restore'
+alias grs='git restore --staged'
+alias grm='git fetch origin && git rebase origin/main'
+alias grp='git remote prune'
+alias grpo='git remote prune origin'
+alias gs='git status'
+alias gsu='git submodule init; git submodule update'
+#git pull from
+gpf() { git pull $1 main; }
+gpfb() { git pull $1 $2; }
+gcot() { gb --remotes --no-color | grep "^[[:space:]]\+origin\/$1" | head -n 1 | awk -F"/" '{ print $2 }' | xargs git checkout }
+gff() { git remote add $1 "git://github.com/$1/${PWD##*/}.git" && git fetch $1 }
+gpr() {
+  current_branch=`git rev-parse --abbrev-ref HEAD`
+  if [[ $1 != '' ]]; then
+    upstream="$1..."
+  else
+    upstream=''
+  fi
+  origin_username=`git remote -v | grep 'origin.\+fetch' | head -n 1 | sed "s/^.*github.com[\/:]\(.*\)\/\(.*\)\.git.*$/\1/"`
+  origin_repository=`git remote -v | grep 'origin.\+fetch' | head -n 1 | sed "s/^.*github.com[\/:]\(.*\)\/\(.*\)\.git.*$/\2/"`
+  if [[ `git remote | grep sikachu` != '' ]]; then
+    my_username='sikachu'
+  else
+    my_username=$origin_username
+  fi
+
+  open -a /Applications/Safari.app "https://github.com/$origin_username/$origin_repository/compare/$upstream$my_username:$current_branch?expand=1"
+}
+
+# Homebrew
+alias bbedit="$EDITOR ~/.Brewfile && brew bundle --global"
+alias bbup="brew update && brew upgrade"
+alias bb="command brew bundle --global"
+brew() {
+  if [[ $1 = 'install' ]]; then
+    echo "brew install disabled; Edit '~/.Brewfile' and use 'brew bundle' instead."
+  else
+    command brew $@
+  fi
+}
+
+# Ruby & Rails
+alias be="bundle exec"
+alias b="bundle"
+gemcd() { cd $(bundle info --path $@) }
+_gemcd() {
+  compadd `bundle list --name-only`
+}
+compdef _gemcd gemcd
+rspec() {
+  if [ -f "bin/rspec" ]; then
+    bin/rspec $@
+  elif [ -f "Gemfile" ]; then
+    command bundle exec rspec $@
+  else
+    command rspec $@
+  fi
+}
+rake() {
+  if [ -f "bin/rake" ]; then
+    bin/rake $@
+  elif [ -f "Gemfile" ]; then
+    command bundle exec rake $@
+  else
+    command rake $@
+  fi
+}
+rails() {
+  if [ -f "bin/rails" ]; then
+    bin/rails $@
+  elif [ -f "Gemfile" ]; then
+    command bundle exec rails $@
+  else
+    command rails $@
+  fi
+}
+alias rc='git ls-files -m | xargs ls -1 2>/dev/null | grep '\.rb$' | xargs rubocop'
+alias rct='ctags -R --languages=ruby --exclude=.git --exclude=log --exclude=tmp . $(bundle list --paths)'
+alias rs='rails server'
+alias sp="bin/rspec"
+alias ss="spring stop"
+alias sync='git pull && bundle && yarn && bin/rails db:migrate'
+alias t='bundle exec ruby -Itest'
+
+# docker-compose
+du() {
+  if [[ $1 != '' ]]; then
+    tag="$1"
+  else
+    tag=$(basename `pwd`)
+  fi
+  if [[ $2 != '' ]]; then
+    port="$2"
+  else
+    port=$(grep EXPOSE Dockerfile | cut -f 2 -d " ")
+    port=$port:$port
+  fi
+  docker build -t $tag . && docker image prune -f && docker run --rm -p $port $tag
+}
+
+# k8s
+alias kb="kubecolor"
+alias kbon="kubeon"
+alias kbdiff="kustomize build . | kubecolor diff -f -"
+alias kbapply="kustomize build . | kubecolor apply -f -"
+alias kbuild="kustomize build . | yq -C"
+alias kbnamespace="kubens"
+alias kbns="kubens"
+alias kbenv="kubens"
+alias kbcluster="kubectx"
+alias kbcl="kubectx"
+alias kbg="kubecolor get"
+alias kbgp="kubecolor get pods"
+alias kbdp="kubecolor describe pod"
+alias kbd="kubecolor describe"
+alias kbl="kubecolor logs"
+
+# Terraform
+alias tfsec='tfsec --concise-output'
