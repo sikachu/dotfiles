@@ -1,0 +1,16 @@
+*.scratch.*
+.*.swo
+.*.swp
+.DS_Store
+.direnv
+.envrc
+.trello_flow
+/config/initializers/spring_watcher_debug.rb
+/lefthook-local.yml
+/spec/files/multipage_pdf.%w
+/tags
+Session.vim
+crash.*.log
+dump.tar.bz2
+rspec_n_iteration.*
+yarn-error.log
