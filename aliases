@@ -5,7 +5,7 @@ alias ra="source ~/.aliases"
 alias ea="mvim ~/.aliases"
 
 # rcm
-alias rcm="rcm -v"
+alias rcup="rcup -v"
 
 # zsh
 alias ezsh="mvim ~/.zshrc"
