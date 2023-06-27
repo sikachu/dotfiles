@@ -1,0 +1,10 @@
+# vim: set syntax=yaml:
+extends: default
+
+rules:
+  document-start: disable
+  line-length: disable
+  comments:
+    min-spaces-from-content: 2
+  truthy:
+    check-keys: false
