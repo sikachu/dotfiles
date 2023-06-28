@@ -57,7 +57,7 @@ fi
 # Display warning if there's an uncommit changes in Dotfiles
 dotfiles_warnings() {
   if [[ -d "$HOME/.dotfiles" ]]; then
-    (cd "$HOME/.dotfiles" && git diff --exit-code --quiet)
+    git -C $HOME/.dotfiles diff --exit-code --quiet
     if [[ $? != 0 ]]; then; echo " ⚠️"; fi
   fi
 }
