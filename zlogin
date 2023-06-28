@@ -87,3 +87,6 @@ zle -N del-prompt-accept-line
 bindkey "^M" del-prompt-accept-line
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# Source private zlogin file if exist
+if [[ -f "$HOME/.zlogin-private" ]]; then; source "$HOME/.zlogin-private"; fi
