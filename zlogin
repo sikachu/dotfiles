@@ -49,15 +49,14 @@ if [[ -f "/opt/homebrew/opt/kube-ps1/share/kube-ps1.sh" ]]; then
   export KUBE_PS1_CLUSTER_FUNCTION=kb_cluster_color
   source "/opt/homebrew/opt/kube-ps1/share/kube-ps1.sh"
   kubeoff
-
-  # Set fancy prompt
-  export PS1='┏ (— ＿＿＿—  X)$(kube_ps1)
-$(long_prompt)'
 else
-  # Set fancy prompt
-  export PS1='┏ (— ＿＿＿—  X)
-$(long_prompt)'
+  # Define an empty kube_ps1 function
+  kube_ps1() {}
 fi
+
+# Set fancy prompt
+export PS1='┏ (— ＿＿＿—  X)$(kube_ps1)
+$(long_prompt)'
 
 # These function calls stop prompt from deleting the first line when
 # opening a new tab.
