@@ -66,22 +66,22 @@ dotfiles_warnings() {
 export PS1='┏ (— ＿＿＿—  X)$(dotfiles_warnings)$(kube_ps1)
 $(long_prompt)'
 
-# These function calls stop prompt from deleting the first line when
-# opening a new tab.
+# This function will be called by zsh before it runs a command.
+# We need to define it so it will retain the prompt.
 precmd() {
-    precmd() {
-        echo
-    }
+  precmd() {
+      echo
+  }
 }
 
 # This causes zsh to delete the line and replace with short prompt after
 # pressing a return key.
 del-prompt-accept-line() {
-    OLD_PROMPT="$PROMPT"
-    PROMPT="─ $(short_prompt)"
-    zle reset-prompt
-    PROMPT="$OLD_PROMPT"
-    zle accept-line
+  OLD_PROMPT="$PROMPT"
+  PROMPT="─ $(short_prompt)"
+  zle reset-prompt
+  PROMPT="$OLD_PROMPT"
+  zle accept-line
 }
 zle -N del-prompt-accept-line
 bindkey "^M" del-prompt-accept-line
