@@ -54,8 +54,16 @@ else
   kube_ps1() {}
 fi
 
+# Display warning if there's an uncommit changes in Dotfiles
+dotfiles_warnings() {
+  if [[ -d "$HOME/.dotfiles" ]]; then
+    (cd "$HOME/.dotfiles" && git diff --exit-code --quiet)
+    if [[ $? != 0 ]]; then; echo " ⚠️"; fi
+  fi
+}
+
 # Set fancy prompt
-export PS1='┏ (— ＿＿＿—  X)$(kube_ps1)
+export PS1='┏ (— ＿＿＿—  X)$(dotfiles_warnings)$(kube_ps1)
 $(long_prompt)'
 
 # These function calls stop prompt from deleting the first line when
