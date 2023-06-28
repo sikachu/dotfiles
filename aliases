@@ -14,10 +14,10 @@ alias ezsh="mvim ~/.zshrc"
 alias agq='ag -Q'
 alias e="mvim"
 p() {
-  cd "$HOME/Developer/$1"
+  cd "$HOME/code/$1"
 }
 _projects() {
-  compadd `ls -1 "$HOME/Developer"`
+  compadd `ls -1 "$HOME/code"`
 }
 compdef _projects p
 alias vcat='vimcat'
