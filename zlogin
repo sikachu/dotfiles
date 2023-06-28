@@ -34,23 +34,30 @@ long_prompt() {
   fi
 }
 
-# Show green/yellow/red color based on k8s cluster name
-function kb_cluster_color() {
-  if [[ $1 == *"development"* ]]; then
-    echo "$fg[green]$1"
-  elif [[ $1 == *"staging"* ]]; then
-    echo "$fg[yellow]$1"
-  else
-    echo $1
-  fi
-}
-export KUBE_PS1_CLUSTER_FUNCTION=kb_cluster_color
-source "/opt/homebrew/opt/kube-ps1/share/kube-ps1.sh"
-kubeoff
+# Only display k8s prompt if kube-ps1 is installed
+if [[ -f "/opt/homebrew/opt/kube-ps1/share/kube-ps1.sh" ]]; then
+  # Show green/yellow/red color based on k8s cluster name
+  function kb_cluster_color() {
+    if [[ $1 == *"development"* ]]; then
+      echo "$fg[green]$1"
+    elif [[ $1 == *"staging"* ]]; then
+      echo "$fg[yellow]$1"
+    else
+      echo $1
+    fi
+  }
+  export KUBE_PS1_CLUSTER_FUNCTION=kb_cluster_color
+  source "/opt/homebrew/opt/kube-ps1/share/kube-ps1.sh"
+  kubeoff
 
-# Set fancy prompt
-export PS1='┏ (— ＿＿＿—  X)$(kube_ps1)
+  # Set fancy prompt
+  export PS1='┏ (— ＿＿＿—  X)$(kube_ps1)
 $(long_prompt)'
+else
+  # Set fancy prompt
+  export PS1='┏ (— ＿＿＿—  X)
+$(long_prompt)'
+fi
 
 # These function calls stop prompt from deleting the first line when
 # opening a new tab.
