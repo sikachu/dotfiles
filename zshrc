@@ -41,9 +41,16 @@ compinit
 # automatically enter directories without cd
 setopt auto_cd
 
-# use MacVim as an editor
-export EDITOR="mvim -f"
-export PSQL_EDITOR='mvim -f +"set syntax=sql" '
+# set appropriate editor
+if [[ -x "$(command -v mvim)" ]]; then
+  export EDITOR="mvim -f"
+  export PSQL_EDITOR='mvim -f +"set syntax=sql" '
+else
+  export EDITOR="vim -f"
+  export PSQL_EDITOR='vim -f +"set syntax=sql" '
+fi
+
+# set UTF8 encoding
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
