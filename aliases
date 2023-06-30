@@ -12,7 +12,13 @@ alias ezsh="mvim ~/.zshrc"
 
 # General
 alias agq='ag -Q'
-alias e="mvim"
+e() {
+  if [[ -x "$(command -v mvim)" ]]; then
+    mvim $@
+  else
+    vim $@
+  fi
+}
 p() {
   cd "$HOME/code/$1"
 }
