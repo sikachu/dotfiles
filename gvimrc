@@ -1,5 +1,5 @@
 " Font
-set guifont=Inconsolata\ for\ Powerline:h22.00
+set guifont=Inconsolata\ for\ Powerline:h17.00
 
 " No audible bell
 set vb
