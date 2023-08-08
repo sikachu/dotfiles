@@ -14,3 +14,4 @@ crash.*.log
 dump.tar.bz2
 rspec_n_iteration.*
 yarn-error.log
+/.rspec-local
