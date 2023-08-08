@@ -56,7 +56,11 @@ export LANG=en_US.UTF-8
 
 # aliases
 if [ -e "$HOME/.aliases" ]; then; source "$HOME/.aliases"; fi
-if [ -e "$HOME/.aliases-private" ]; then; source "$HOME/.aliases-private"; fi
+if [ -d "$HOME/.aliases.d" ]; then
+  for file in ~/.aliases.d/*; do
+    source "$file"
+  done
+fi
 
 # vi mode
 bindkey -v
