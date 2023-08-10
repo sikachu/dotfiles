@@ -10,10 +10,13 @@ filetype off                  " required!
 
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'dense-analysis/ale'
 Plugin 'fatih/vim-go'
-Plugin 'gmarik/Vundle.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'google/vim-jsonnet'
 Plugin 'groenewege/vim-less'
