@@ -31,6 +31,7 @@ alias vcat='vimcat'
 # Foolproof
 alias sl="ls"
 alias -g pdos="pods"
+alias gti="git"
 
 # Git
 alias g="git"
