@@ -156,11 +156,11 @@ rails() {
 alias rc='git ls-files -m | xargs ls -1 2>/dev/null | grep '\.rb$' | xargs rubocop'
 alias rct='ctags -R --languages=ruby --exclude=.git --exclude=log --exclude=tmp . $(bundle list --paths)'
 alias rs='rails server'
+alias ws='bin/webpack-dev-server'
 alias sp="bin/rspec"
 alias ss="spring stop"
 alias sync='git pull && bundle && yarn && bin/rails db:migrate'
 alias t='bundle exec ruby -Itest'
-alias wp='bin/webpack-dev-server'
 
 # docker-compose
 du() {
