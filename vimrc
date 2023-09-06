@@ -274,10 +274,6 @@ set scrolloff=5
 " Ruby default for c file
 autocmd FileType c setlocal shiftwidth=4 softtabstop=4 tabstop=8 expandtab
 
-" let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git\|tmp'
-" let g:ctrlp_max_files = 0
-" let g:ctrlp_max_depth = 40
-
 " ALE related
 " let g:ale_lint_on_text_changed = 'never'
 " let g:ale_lint_on_insert_leave = 0
