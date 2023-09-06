@@ -190,32 +190,8 @@ highlight NonText guibg=#060606
 highlight Folded  guibg=#0A0A0A guifg=#9090D0
 highlight diffRemoved guifg=#CC0000
 
-" Numbers
-" NOTE: This is disabled due to performance problem in MacVim
-" if v:version > 702
-"   set relativenumber
-"
-"   " http://stackoverflow.com/questions/762515/vim-remap-key-to-toggle-line-numbering
-"   " source: http://stackoverflow.com/questions/4387210/vim-how-to-map-two-tasks-under-one-shortcut-key
-"   let g:relativenumber = 0
-"   set nonumber
-"   set relativenumber
-"   function! ToggleRelativeNumber()
-"     if g:relativenumber == 0
-"       let g:relativenumber = 1
-"       set number
-"       set norelativenumber
-"     else
-"       let g:relativenumber = 0
-"       set nonumber
-"       set relativenumber
-"     endif
-"   endfunction
-"   map <C-L> :call ToggleRelativeNumber()<cr>
-" else
-"   set number
-" endif
-" set numberwidth=5
+" Enable line number
+set numberwidth=5
 set number
 
 " Snippets are activated by Shift+Tab
