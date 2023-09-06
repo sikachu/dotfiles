@@ -285,7 +285,7 @@ autocmd FileType c setlocal shiftwidth=4 softtabstop=4 tabstop=8 expandtab
 let g:ale_linters_ignore = { 'ruby': ['brakeman'] }
 au BufRead,BufNewFile */.github/*/*.y{,a}ml
   \ let b:ale_linters = {'yaml': ['actionlint']}
-let g:ale_fixers = {'ruby': ['rubocop']}
+let g:ale_fixers = {'ruby': ['rubocop'], 'vue': ['prettier']}
 let g:ale_fix_on_save = 1
 command! ALEToggleFixer execute "let g:ale_fix_on_save = get(g:, 'ale_fix_on_save', 0) ? 0 : 1"
 
