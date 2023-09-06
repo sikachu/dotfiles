@@ -120,7 +120,7 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Add kubetl autocompletion
-[[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
+[ -s /usr/local/bin/kubectl ] && source <(kubectl completion zsh)
 
 # Always run grep with color
 export GREP_OPTIONS="--color=auto"
