@@ -232,6 +232,9 @@ cabbrev vps vsp
 " ack/ag alias
 cabbrev Ag Ack
 
+" Don't jump to the first result automatically
+cnoreabbrev Ack Ack!
+
 " Redraw the editor
 map <Leader>r :redraw!<cr>
 
