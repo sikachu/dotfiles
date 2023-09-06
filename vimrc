@@ -213,7 +213,6 @@ let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 
 " Add function for remove tailing whitespaces
 command! CleanupTrailingSpaces :%s/\s\+$//ge | :nohlsearch
-" autocmd InsertLeave * :CleanupTrailingSpaces
 
 " Override the line for git commit message
 au FileType gitcommit set colorcolumn=51,73
