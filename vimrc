@@ -332,6 +332,10 @@ let g:fzf_action = {
   \ 'ctrl-v': 'vsplit' }
 let g:fzf_command_prefix = 'Fzf'
 
+" Override vim-ruby indentation rule for assignment style indentation
+" See :help vim-ruby-indent
+let g:ruby_indent_assignment_style = 'variable'
+
 " Terraform
 let g:terraform_align = 1
 let g:terraform_fmt_on_save = 1
