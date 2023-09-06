@@ -18,6 +18,7 @@ endif
 if has("gui_macvim")
   macmenu &File.New\ Tab key=<nop>
   map <D-t> :FzfFiles<CR>
+  map <D-r> :FzfFiles %:p:h<CR>
 
   " Switch to specific tab numbers with Command-number
   noremap <D-1> :tabn 1<CR>
