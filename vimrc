@@ -278,6 +278,7 @@ autocmd FileType c setlocal shiftwidth=4 softtabstop=4 tabstop=8 expandtab
 " let g:ale_lint_on_text_changed = 'never'
 " let g:ale_lint_on_insert_leave = 0
 " let g:ale_ruby_rubocop_executable = 'rubocop-daemon-wrapper'
+let g:ale_virtualtext_cursor = 'disabled'
 let g:ale_linters_ignore = { 'ruby': ['brakeman'] }
 au BufRead,BufNewFile */.github/*/*.y{,a}ml
   \ let b:ale_linters = {'yaml': ['actionlint']}
