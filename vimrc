@@ -257,6 +257,7 @@ nmap <silent> <leader>g :TestVisit<CR>
 let test#strategy = "terminal"
 let test#ruby#bundle_exec = 0
 let g:test#preserve_screen = 1
+let g:test#echo_command = 0
 
 " Setup for Powerline
 set pythonthreedll=/opt/homebrew/opt/python@3.9/Frameworks/Python.framework/Versions/3.9/Python
