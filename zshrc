@@ -137,6 +137,11 @@ export LESS_TERMCAP_so=$(printf '\e[01;33m') # enter standout mode – yellow
 export LESS_TERMCAP_ue=$(printf '\e[0m') # leave underline mode
 export LESS_TERMCAP_us=$(printf '\e[04;36m') # enter underline mode – cyan
 
+# Rust
+if [ -d "$HOME/.cargo" ]; then
+  source "$HOME/.cargo/env"
+fi
+
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/prem-sichanugrist/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
