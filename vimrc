@@ -243,8 +243,8 @@ let g:test#preserve_screen = 1
 let g:test#echo_command = 0
 
 " Setup for Powerline
-set pythonthreedll=/opt/homebrew/opt/python@3.9/Frameworks/Python.framework/Versions/3.9/Python
-set pythonthreehome=/opt/homebrew/opt/python@3.9/Frameworks/Python.framework/Versions/3.9
+set pythonthreedll=/opt/homebrew/opt/python/Frameworks/Python.framework/Versions/Current/Python
+set pythonthreehome=/opt/homebrew/opt/python/Frameworks/Python.framework/Versions/Current
 let g:rails_statusline = 0
 py3 from powerline.vim import setup as powerline_setup
 py3 powerline_setup()
