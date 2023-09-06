@@ -160,10 +160,6 @@ cmap <C-O> <C-R>=expand("%:t") <CR>
 " Maps autocomplete to tab
 imap <Tab> <C-N>
 
-" Duplicate a selection
-" Visual mode: D
-vmap D y'>p
-
 " No Help, please
 nmap <F1> <Esc>
 
