@@ -208,9 +208,6 @@ set ignorecase
 set infercase
 set smartcase
 
-" disable mouse
-set mouse-=a
-
 " Tags
 let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 
