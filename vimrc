@@ -258,7 +258,7 @@ set scrolloff=5
 autocmd FileType c setlocal shiftwidth=4 softtabstop=4 tabstop=8 expandtab
 
 " ALE related
-" let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_text_changed = 'never'
 " let g:ale_lint_on_insert_leave = 0
 " let g:ale_ruby_rubocop_executable = 'rubocop-daemon-wrapper'
 let g:ale_virtualtext_cursor = 'disabled'
