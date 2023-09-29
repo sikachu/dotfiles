@@ -263,6 +263,7 @@ let g:ale_lint_on_text_changed = 'never'
 " let g:ale_ruby_rubocop_executable = 'rubocop-daemon-wrapper'
 let g:ale_virtualtext_cursor = 'disabled'
 let g:ale_linters_ignore = { 'ruby': ['brakeman'] }
+let g:ale_linters = {'ruby': ['rubocop', 'ruby']}
 au BufRead,BufNewFile */.github/*/*.y{,a}ml
   \ let b:ale_linters = {'yaml': ['actionlint']}
 let g:ale_fixers = {'ruby': ['rubocop'], 'vue': ['prettier']}
