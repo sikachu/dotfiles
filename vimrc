@@ -14,6 +14,7 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
+Plugin 'andymass/vim-matchup'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'dense-analysis/ale'
 Plugin 'fatih/vim-go'
