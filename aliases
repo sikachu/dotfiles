@@ -108,8 +108,8 @@ gpr() {
 
 # Homebrew
 alias bbedit="$EDITOR ~/.Brewfile && brew bundle --global"
-alias bbup="brew update && brew upgrade"
-alias bbupdate="brew update && brew upgrade"
+alias bbup="brew update && brew upgrade && brew cleanup"
+alias bbupdate="brew update && brew upgrade && brew cleanup"
 alias bb="command brew bundle --global"
 brew() {
   if [[ $1 = 'install' ]]; then
