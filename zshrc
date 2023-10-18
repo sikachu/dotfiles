@@ -104,10 +104,10 @@ fi
 export PYTHONPATH="/opt/homebrew/lib/python3.9/site-packages"
 
 # Setup paths
+export PATH="$HOME/.rd/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 export PATH="/opt/homebrew/opt/python@3.9/libexec/bin:$PATH"
-export PATH="$PATH:$HOME/.rvm/bin"
 
 # Setup direnv hook
 eval "$(direnv hook zsh)"
@@ -141,10 +141,6 @@ export LESS_TERMCAP_us=$(printf '\e[04;36m') # enter underline mode – cyan
 if [ -d "$HOME/.cargo" ]; then
   source "$HOME/.cargo/env"
 fi
-
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/prem-sichanugrist/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
