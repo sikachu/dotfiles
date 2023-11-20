@@ -286,3 +286,6 @@ let g:ruby_indent_assignment_style = 'variable'
 " Terraform
 let g:terraform_align = 1
 let g:terraform_fmt_on_save = 1
+
+" Vue
+let g:vue_pre_processors = ['scss']
