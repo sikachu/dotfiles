@@ -158,6 +158,7 @@ alias rc='git ls-files -m | xargs ls -1 2>/dev/null | grep '\.rb$' | xargs ruboc
 alias rct='ctags -R --languages=ruby --exclude=.git --exclude=log --exclude=tmp . $(bundle list --paths)'
 alias rs='rails server'
 alias ws='bin/webpack-dev-server --no-live-reload'
+alias wcl="rm -r public/packs public/packs-test"
 alias sp="bin/rspec"
 alias ss="spring stop"
 alias sync='git pull && git cleanup && bundle && yarn && bin/rails db:migrate'
