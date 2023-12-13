@@ -188,11 +188,6 @@ set completeopt=longest,menu
 set wildmode=list:longest,list:full
 set complete=.,t
 
-" case only matters with mixed case expressions
-set ignorecase
-set infercase
-set smartcase
-
 " Tags
 let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 
