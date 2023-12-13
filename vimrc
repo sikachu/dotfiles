@@ -3,7 +3,8 @@
 set nocompatible
 
 " Use old RegExp engine
-set re=0
+" setting re=1 prevents Ruby syntax highlighting to slow down
+set re=1
 
 " Vundle
 filetype off                  " required!
