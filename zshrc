@@ -128,6 +128,9 @@ export GREP_OPTIONS="--color=auto"
 # Runs brew autoremove after every uninstall or cleanup
 export HOMEBREW_AUTOREMOVE=1
 
+# No more hints, please
+export HOMEBREW_NO_ENV_HINTS=1
+
 # Add color to less
 export LESS_TERMCAP_mb=$(printf '\e[01;31m') # enter blinking mode – red
 export LESS_TERMCAP_md=$(printf '\e[01;35m') # enter double-bright mode – bold, magenta
