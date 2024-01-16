@@ -278,6 +278,7 @@ let g:fzf_command_prefix = 'Fzf'
 " Override vim-ruby indentation rule for assignment style indentation
 " See :help vim-ruby-indent
 let g:ruby_indent_assignment_style = 'variable'
+let g:ruby_indent_hanging_elements = 1
 
 " Terraform
 let g:terraform_align = 1
