@@ -177,7 +177,7 @@ highlight diffRemoved guifg=#CC0000
 
 " Enable line number
 set numberwidth=5
-set relativenumber
+set number relativenumber
 
 " Snippets are activated by Shift+Tab
 let g:snippetsEmu_key = "<S-Tab>"
