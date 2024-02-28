@@ -27,3 +27,6 @@ Style/HashSyntax:
 
 Metrics/BlockLength:
   Enabled: false
+
+Lint/UnusedBlockArgument:
+  AutoCorrect: false
