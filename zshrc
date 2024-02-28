@@ -100,14 +100,10 @@ if [[ -d ~/.rbenv ]]; then
   fi
 fi
 
-# Set python paths
-export PYTHONPATH="/opt/homebrew/lib/python3.9/site-packages"
-
 # Setup paths
 export PATH="$HOME/.rd/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
-export PATH="/opt/homebrew/opt/python@3.9/libexec/bin:$PATH"
 
 # Setup direnv hook
 eval "$(direnv hook zsh)"
