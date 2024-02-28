@@ -46,6 +46,7 @@ Plugin 'udalov/kotlin-vim'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'vim-scripts/tComment'
 Plugin 'wsdjeg/vim-fetch'
+Plugin 'yssl/QFEnter'
 
 " fzf
 Plugin 'junegunn/fzf'
@@ -286,3 +287,9 @@ let g:terraform_fmt_on_save = 1
 
 " Vue
 let g:vue_pre_processors = ['scss']
+
+" QFEnter
+let g:qfenter_keymap = {}
+let g:qfenter_keymap.vopen = ['<C-v>']
+let g:qfenter_keymap.hopen = ['<C-CR>', '<C-s>', '<C-x>']
+let g:qfenter_keymap.topen = ['<C-t>']
