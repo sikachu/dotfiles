@@ -19,8 +19,8 @@ require "irb/completion"
 IRB.conf[:USE_MULTILINE] = true
 
 # History
-require "irb/ext/save-history"
-IRB.conf[:SAVE_HISTORY] = 100
+require "irb/ext/save-history" unless RUBY_VERSION > "3.3"
+IRB.conf[:SAVE_HISTORY] = 1_000
 IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb-save-history"
 
 # Easily print methods local to an object's class
