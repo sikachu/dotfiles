@@ -157,8 +157,8 @@ rails() {
 alias rc='git ls-files -m | xargs ls -1 2>/dev/null | grep '\.rb$' | xargs rubocop'
 alias rct='ctags -R --languages=ruby --exclude=.git --exclude=log --exclude=tmp . $(bundle list --paths)'
 alias rdm='rails db:migrate'
-alias rdmr='rails db:migrate && rails db:rollback STEP=1 && rails db:migrate'
-alias rdr='rails db:rollback'
+alias rdr='rails db:migrate && rails db:rollback STEP=1 && rails db:migrate'
+alias rdo='rails db:rollback STEP=1'
 alias rs='rails server'
 alias ws='bin/webpack-dev-server --no-live-reload'
 alias wcl="rm -r public/packs public/packs-test"
