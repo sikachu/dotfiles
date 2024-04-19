@@ -68,6 +68,13 @@ bindkey -v
 # use incremental search
 bindkey ^R history-incremental-search-backward
 
+# accept ^[[H and ^[[F as home/end
+bindkey "^[[H" beginning-of-line
+bindkey "^[[F" end-of-line
+
+# accept ^[[3~ as delete
+bindkey "^[[3~" delete-char
+
 # expand functions in the prompt
 setopt prompt_subst
 
