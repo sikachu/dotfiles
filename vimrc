@@ -300,6 +300,6 @@ let g:qfenter_keymap.vopen = ['<C-v>']
 let g:qfenter_keymap.hopen = ['<C-CR>', '<C-s>', '<C-x>']
 let g:qfenter_keymap.topen = ['<C-t>']
 
-" Easy add binding.irb
-command Insirb :normal Obinding.irb<ESC>
-map <Leader>i :Insirb<CR>
+" Easy add binding.irb above/below current line
+map <Leader>I :normal Obinding.irb<ESC>
+map <Leader>i :normal obinding.irb<ESC>
