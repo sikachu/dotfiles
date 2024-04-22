@@ -36,6 +36,7 @@ Plugin 'skwp/greplace.vim'
 Plugin 'slim-template/vim-slim'
 Plugin 'towolf/vim-helm'
 Plugin 'tpope/vim-cucumber'
+Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-endwise'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-markdown'
@@ -237,10 +238,8 @@ nmap <silent> <leader>T :TestFile<CR>
 nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
-let test#strategy = "terminal"
+let test#strategy = "dispatch"
 let test#ruby#bundle_exec = 0
-let g:test#preserve_screen = 1
-let g:test#echo_command = 0
 
 " Setup for Powerline
 set pythonthreedll=/opt/homebrew/opt/python/Frameworks/Python.framework/Versions/Current/Python
