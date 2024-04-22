@@ -104,8 +104,10 @@ set expandtab
 " Always display the status line
 set laststatus=2
 
-" \ is the leader character
+" Use space bar and backslash as leader keys
 let mapleader = "\\"
+noremap <SPACE> <Nop>
+map <Space> <Leader>
 
 " Leader shortcuts for Rails commands
 map <Leader>m :Rmodel
