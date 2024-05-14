@@ -4,6 +4,7 @@
 .DS_Store
 .direnv
 .envrc
+.ignore
 .trello_flow
 /.rspec-local
 /Procfile
