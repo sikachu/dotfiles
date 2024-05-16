@@ -128,9 +128,6 @@ export FZF_DEFAULT_COMMAND='ag -g ""'
 # Always run grep with color
 export GREP_OPTIONS="--color=auto"
 
-# Runs brew autoremove after every uninstall or cleanup
-export HOMEBREW_AUTOREMOVE=1
-
 # No more hints, please
 export HOMEBREW_NO_ENV_HINTS=1
 
