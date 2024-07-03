@@ -238,13 +238,10 @@ nmap <silent> <leader>T :TestFile<CR>
 nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
-nmap <silent> <leader><C-t> :TestNearest -strategy=terminal<CR>
-nmap <silent> <leader><C-T> :TestFile -strategy=terminal<CR>
-nmap <silent> <leader><C-a> :TestSuite -strategy=terminal<CR>
-nmap <silent> <leader><C-l> :TestLast -strategy=terminal<CR>
-nmap <silent> <leader><C-g> :TestVisit -strategy=terminal<CR>
 let test#strategy = "dispatch"
 let test#ruby#bundle_exec = 0
+nmap <leader>1 :let test#strategy = "dispatch" \| echo "vim-test: switched to dispatch strategy"<CR>
+nmap <leader>2 :let test#strategy = "terminal" \| echo "vim-test: switched to terminal strategy"<CR>
 
 " Setup for Powerline
 set pythonthreedll=/opt/homebrew/opt/python/Frameworks/Python.framework/Versions/Current/Python
