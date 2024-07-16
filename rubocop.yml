@@ -30,3 +30,9 @@ Metrics/BlockLength:
 
 Lint/UnusedBlockArgument:
   AutoCorrect: false
+
+Lint/UnusedMethodArgument:
+  AutoCorrect: false
+
+Lint/UselessAssignment:
+  AutoCorrect: false
