@@ -45,6 +45,8 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-vividchalk'
 Plugin 'udalov/kotlin-vim'
 Plugin 'vim-ruby/vim-ruby'
+Plugin 'vim-scripts/Align'
+Plugin 'vim-scripts/SQLUtilities'
 Plugin 'vim-scripts/tComment'
 Plugin 'wsdjeg/vim-fetch'
 Plugin 'yssl/QFEnter'
@@ -300,6 +302,10 @@ let g:qfenter_keymap = {}
 let g:qfenter_keymap.vopen = ['<C-v>']
 let g:qfenter_keymap.hopen = ['<C-CR>', '<C-s>', '<C-x>']
 let g:qfenter_keymap.topen = ['<C-t>']
+
+" SQLUtilities
+" Disable the default mapping
+let g:sqlutil_load_default_maps = 0
 
 " Easy add binding.irb above/below current line
 map <Leader>I :normal Obinding.irb<ESC>
