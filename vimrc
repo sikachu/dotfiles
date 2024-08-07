@@ -310,3 +310,7 @@ let g:sqlutil_load_default_maps = 0
 " Easy add binding.irb above/below current line
 map <Leader>I :normal Obinding.irb<ESC>
 map <Leader>i :normal obinding.irb<ESC>
+
+" Always highlight binding.irb and binding.pry
+highlight Debugger ctermbg=red guibg=red
+match Debugger /binding\.\(irb\|pry\)/
