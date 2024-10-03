@@ -29,10 +29,10 @@ Metrics/BlockLength:
   Enabled: false
 
 Lint/UnusedBlockArgument:
-  AutoCorrect: contextual
+  AutoCorrect: disabled
 
 Lint/UnusedMethodArgument:
-  AutoCorrect: contextual
+  AutoCorrect: disabled
 
 Lint/UselessAssignment:
-  AutoCorrect: contextual
+  AutoCorrect: disabled
