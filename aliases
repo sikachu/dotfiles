@@ -168,6 +168,7 @@ alias sp="bin/rspec"
 alias ss="spring stop"
 alias sync='git pull && git cleanup && bundle && yarn && bin/rails db:migrate'
 alias t='bundle exec ruby -Itest'
+alias brspec="bin/rspec --require ~/.rspec_bisect --bisect=verbose"
 
 # docker-compose
 du() {
