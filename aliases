@@ -204,4 +204,5 @@ alias kbd="kubecolor describe"
 alias kbl="kubecolor logs"
 
 # Terraform
-alias tfsec='tfsec --concise-output'
+alias tfsec="tfsec --concise-output"
+alias tf="terraform"
