@@ -206,3 +206,7 @@ alias kbl="kubecolor logs"
 # Terraform
 alias tfsec="tfsec --concise-output"
 alias tf="terraform"
+
+# For debugging
+untilfail() { while "$@"; do :; done }
+untilpass() { until "$@"; do :; done }
