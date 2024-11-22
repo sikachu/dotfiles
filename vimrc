@@ -240,6 +240,8 @@ nmap <silent> <leader>T :TestFile<CR>
 nmap <silent> <leader>a :TestSuite<CR>
 nmap <silent> <leader>l :TestLast<CR>
 nmap <silent> <leader>g :TestVisit<CR>
+let g:test#echo_command = 0
+let g:test#preserve_screen = 1
 let test#strategy = "dispatch"
 let test#ruby#bundle_exec = 0
 nmap <leader>1 :let test#strategy = "dispatch" \| echo "vim-test: switched to dispatch strategy"<CR>
