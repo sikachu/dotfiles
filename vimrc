@@ -248,17 +248,19 @@ nmap <leader>1 :let test#strategy = "dispatch" \| echo "vim-test: switched to di
 nmap <leader>2 :let test#strategy = "terminal" \| echo "vim-test: switched to terminal strategy"<CR>
 
 " Setup for Powerline
-set pythonthreedll=/opt/homebrew/opt/python/Frameworks/Python.framework/Versions/Current/Python
-set pythonthreehome=/opt/homebrew/opt/python/Frameworks/Python.framework/Versions/Current
-let g:rails_statusline = 0
-" Use powerline from venv and add to PATH
-" $ python3 -m venv ~/.vim/powerline-status
-" $ ~/.vim/powerline-status/bin/pip3 install powerline-status
-py3 import sys,os; sys.path.append(os.path.expanduser("~/.vim/powerline-status/lib/python3.12/site-packages/"))
-py3 from powerline.vim import setup as powerline_setup
-py3 powerline_setup()
-py3 del powerline_setup
-set shell=/bin/sh
+if isdirectory('/opt/homebrew')
+  set pythonthreedll=/opt/homebrew/opt/python/Frameworks/Python.framework/Versions/Current/Python
+  set pythonthreehome=/opt/homebrew/opt/python/Frameworks/Python.framework/Versions/Current
+  let g:rails_statusline = 0
+  " Use powerline from venv and add to PATH
+  " $ python3 -m venv ~/.vim/powerline-status
+  " $ ~/.vim/powerline-status/bin/pip3 install powerline-status
+  py3 import sys,os; sys.path.append(os.path.expanduser("~/.vim/powerline-status/lib/python3.12/site-packages/"))
+  py3 from powerline.vim import setup as powerline_setup
+  py3 powerline_setup()
+  py3 del powerline_setup
+  set shell=/bin/sh
+endif
 
 " Keep 3 lines below and above the cursor
 set scrolloff=5
