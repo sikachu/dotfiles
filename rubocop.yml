@@ -22,6 +22,9 @@ Layout/DotPosition:
 Style/FetchEnvVar:
   Enabled: false
 
+Style/GuardClause:
+  Enabled: false
+
 Style/HashSyntax:
   EnforcedShorthandSyntax: consistent
 
