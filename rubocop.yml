@@ -20,6 +20,9 @@ Style/PerlBackrefs:
 Layout/DotPosition:
   EnforcedStyle: trailing
 
+Layout/EmptyLinesAroundClassBody:
+  AutoCorrect: false
+
 Style/FetchEnvVar:
   Enabled: false
 
@@ -33,10 +36,10 @@ Metrics/BlockLength:
   Enabled: false
 
 Lint/UnusedBlockArgument:
-  AutoCorrect: disabled
+  AutoCorrect: false
 
 Lint/UnusedMethodArgument:
-  AutoCorrect: disabled
+  AutoCorrect: false
 
 Lint/UselessAssignment:
-  AutoCorrect: disabled
+  AutoCorrect: false
