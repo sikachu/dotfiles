@@ -2,10 +2,6 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
-" Use old RegExp engine
-" setting re=1 prevents Ruby syntax highlighting to slow down
-set re=1
-
 " Vundle
 filetype off                  " required!
 
@@ -267,6 +263,9 @@ set scrolloff=5
 
 " Ruby default for c file
 autocmd FileType c setlocal shiftwidth=4 softtabstop=4 tabstop=8 expandtab
+
+" Use old regular expression engine for Ruby
+autocmd FileType ruby setlocal regexpengine=0
 
 " ALE related
 let g:ale_lint_on_text_changed = 'never'
