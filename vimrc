@@ -269,15 +269,17 @@ autocmd FileType ruby setlocal regexpengine=0
 
 " ALE related
 let g:ale_lint_on_text_changed = 'never'
-" let g:ale_lint_on_insert_leave = 0
-" let g:ale_ruby_rubocop_executable = 'rubocop-daemon-wrapper'
 let g:ale_virtualtext_cursor = 'disabled'
-let g:ale_linters_ignore = { 'ruby': ['brakeman'] }
+let g:ale_linters_ignore = {'ruby': ['brakeman']}
 let g:ale_linters = {'ruby': ['rubocop', 'ruby']}
 au BufRead,BufNewFile */.github/*/*.y{,a}ml
   \ let b:ale_linters = {'yaml': ['actionlint']}
-let g:ale_fixers = {'ruby': ['rubocop'], 'vue': ['prettier']}
+let g:ale_fixers = {'ruby': ['rubocop'], 'vue': ['prettier'], 'rust': ['rustfmt']}
 let g:ale_fix_on_save = 1
+let g:ale_rust_rustfmt_options = '--edition 2024'
+let g:ale_rust_cargo_use_clippy = 1
+let g:ale_rust_cargo_check_tests = 1
+let g:ale_rust_cargo_check_examples = 1
 command! ALEToggleFixer execute "let g:ale_fix_on_save = get(g:, 'ale_fix_on_save', 0) ? 0 : 1"
 
 " fzf related
