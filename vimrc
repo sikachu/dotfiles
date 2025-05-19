@@ -240,6 +240,7 @@ let g:test#echo_command = 0
 let g:test#preserve_screen = 1
 let test#strategy = "terminal"
 let test#ruby#bundle_exec = 0
+let test#rust#cargotest#executable = "printf \'\\33c\\e[3J\'; cargo test"
 nmap <leader>1 :let test#strategy = "dispatch" \| echo "vim-test: switched to dispatch strategy"<CR>
 nmap <leader>2 :let test#strategy = "terminal" \| echo "vim-test: switched to terminal strategy"<CR>
 
