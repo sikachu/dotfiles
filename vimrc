@@ -284,6 +284,7 @@ au BufRead,BufNewFile */.github/*/*.y{,a}ml
   \ let b:ale_linters = {'yaml': ['actionlint']}
 let g:ale_fixers = {'ruby': ['rubocop'], 'vue': ['prettier'], 'rust': ['rustfmt']}
 let g:ale_fix_on_save = 1
+let g:ale_ruby_rubocop_options = '--editor-mode'
 let g:ale_rust_rustfmt_options = '--edition 2024'
 let g:ale_rust_cargo_use_clippy = 1
 let g:ale_rust_cargo_check_tests = 1
