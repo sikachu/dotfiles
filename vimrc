@@ -65,6 +65,9 @@ set ruler         " show the cursor position all the time
 set showcmd       " display incomplete commands
 set incsearch     " do incremental searching
 
+" Make filename autocomplete case-sensitive
+set nofileignorecase
+
 " Don't use Ex mode, use Q for formatting
 map Q gq
 
