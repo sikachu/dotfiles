@@ -68,6 +68,10 @@ set incsearch     " do incremental searching
 " Make filename autocomplete case-sensitive
 set nofileignorecase
 
+" Allow commands to be executed without having to capitalized them
+set ignorecase
+set smartcase
+
 " Don't use Ex mode, use Q for formatting
 map Q gq
 
