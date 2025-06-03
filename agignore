@@ -2,9 +2,10 @@
 *.snap
 *.sql
 *.svg
+/.git/
+/coverage/index.html
 /tags
-coverage/index.html
-tmp/cache/*
-tmp/capybara/*
-vendor/assets/javascripts/*
+/tmp/cache/*
+/tmp/capybara/*
+/vendor/assets/javascripts/*
 zxcvbn.js

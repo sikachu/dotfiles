@@ -11,7 +11,6 @@ alias rcup="rcup -v"
 alias ezsh="mvim ~/.zshrc"
 
 # General
-alias agq='ag -Q'
 e() {
   if [[ -x "$(command -v mvim)" ]]; then
     mvim $@
@@ -32,6 +31,10 @@ alias vcat='vimcat'
 alias sl="ls"
 alias -g pdos="pods"
 alias gti="git"
+
+# Ag
+alias agq='ag --hidden -Q'
+alias ag='ag --hidden'
 
 # Git
 alias g="git"
