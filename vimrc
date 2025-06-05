@@ -285,7 +285,11 @@ let g:ale_linters_ignore = {'ruby': ['brakeman']}
 let g:ale_linters = {'ruby': ['rubocop', 'ruby']}
 au BufRead,BufNewFile */.github/*/*.y{,a}ml
   \ let b:ale_linters = {'yaml': ['actionlint']}
-let g:ale_fixers = {'ruby': ['rubocop'], 'vue': ['prettier'], 'rust': ['rustfmt']}
+let g:ale_fixers = {
+  \ 'ruby': ['rubocop'],
+  \ 'rust': ['rustfmt'],
+  \ 'typescript': ['prettier'],
+  \ 'vue': ['prettier'] }
 let g:ale_fix_on_save = 1
 let g:ale_ruby_rubocop_options = '--editor-mode'
 let g:ale_rust_rustfmt_options = '--edition 2024'
