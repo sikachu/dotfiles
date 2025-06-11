@@ -288,6 +288,7 @@ au BufRead,BufNewFile */.github/*/*.y{,a}ml
 let g:ale_fixers = {
   \ 'ruby': ['rubocop'],
   \ 'rust': ['rustfmt'],
+  \ 'scss': ['prettier'],
   \ 'typescript': ['prettier'],
   \ 'vue': ['prettier'] }
 let g:ale_fix_on_save = 1
