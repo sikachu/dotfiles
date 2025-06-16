@@ -286,6 +286,7 @@ let g:ale_linters = {'ruby': ['rubocop', 'ruby']}
 au BufRead,BufNewFile */.github/*/*.y{,a}ml
   \ let b:ale_linters = {'yaml': ['actionlint']}
 let g:ale_fixers = {
+  \ 'javascript': ['prettier'],
   \ 'ruby': ['rubocop'],
   \ 'rust': ['rustfmt'],
   \ 'scss': ['prettier'],
