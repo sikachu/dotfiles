@@ -165,7 +165,7 @@ alias rdm='rails db:migrate'
 alias rdr='rails db:migrate && rails db:rollback STEP=1 && rails db:migrate'
 alias rdrb='rails db:rollback STEP=1'
 alias rs='rails server'
-alias ws='bin/webpack-dev-server --no-live-reload'
+alias ws='rm -Rf public/packs public/packs-test public/assets && bin/webpack-dev-server --no-live-reload'
 alias wcl="rm -r public/packs public/packs-test"
 alias sp="bin/rspec"
 alias ss="spring stop"
