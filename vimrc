@@ -299,6 +299,8 @@ let g:ale_rust_cargo_use_clippy = 1
 let g:ale_rust_cargo_check_tests = 1
 let g:ale_rust_cargo_check_examples = 1
 command! ALEToggleFixer execute "let g:ale_fix_on_save = get(g:, 'ale_fix_on_save', 0) ? 0 : 1"
+nmap <silent> <Leader>= :execute 'ALEToggleFixer' <bar>
+  \ :echo get(g:, 'ale_fix_on_save', 0) ? 'ALE: Fix on save enabled' : 'ALE: Fix on save disabled' <CR>
 
 " fzf related
 let g:fzf_layout = { 'down': '40%' }
