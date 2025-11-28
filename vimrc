@@ -310,6 +310,10 @@ let g:fzf_action = {
   \ 'ctrl-v': 'vsplit' }
 let g:fzf_command_prefix = 'Fzf'
 
+" vim-matchup
+let g:matchup_matchparen_offscreen = {'method': 'popup'}
+nnoremap <Leader>k :<c-u>MatchupWhereAmI?<cr>
+
 " Override vim-ruby indentation rule for assignment style indentation
 " See :help vim-ruby-indent
 let g:ruby_indent_assignment_style = 'variable'
