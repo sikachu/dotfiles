@@ -2,6 +2,7 @@
 *.snap
 *.sql
 *.svg
+.terraform/modules
 /.git/
 /coverage/index.html
 /tags
