@@ -210,6 +210,9 @@ alias kbl="kubecolor logs"
 alias tfsec="tfsec --concise-output"
 alias tf="terraform"
 
+# direnv
+alias da="direnv allow"
+
 # For debugging
 untilfail() { while "$@"; do :; done }
 untilpass() { until "$@"; do :; done }
