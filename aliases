@@ -1,4 +1,4 @@
-# vim: set filetype=bash:
+# vim: set filetype=zsh:
 
 # aliases
 alias ra="source ~/.aliases"
