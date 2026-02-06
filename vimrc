@@ -341,6 +341,9 @@ let g:sqlutil_load_default_maps = 0
 map <Leader>I :normal Obinding.irb<ESC>
 map <Leader>i :normal obinding.irb<ESC>
 
+" Easy add frozen string literal comment above the current line
+map <Leader>z :normal O# frozen_string_literal: true<ESC>o<ESC>xj
+
 " Always highlight binding.irb and binding.pry
 highlight Debugger ctermbg=red guibg=red
 match Debugger /binding\.\(irb\|pry\)/
