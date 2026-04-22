@@ -132,15 +132,6 @@ _gemcd() {
   compadd `bundle list --name-only`
 }
 compdef _gemcd gemcd
-rspec() {
-  if [ -f "bin/rspec" ]; then
-    bin/rspec $@
-  elif [ -f "Gemfile" ]; then
-    command bundle exec rspec $@
-  else
-    command rspec $@
-  fi
-}
 rake() {
   if [ -f "bin/rake" ]; then
     bin/rake $@
@@ -157,6 +148,24 @@ rails() {
     command bundle exec rails $@
   else
     command rails $@
+  fi
+}
+rspec() {
+  if [ -f "bin/rspec" ]; then
+    bin/rspec $@
+  elif [ -f "Gemfile" ]; then
+    command bundle exec rspec $@
+  else
+    command rspec $@
+  fi
+}
+rubocop() {
+  if [ -f "bin/rubocop" ]; then
+    bin/rubocop $@
+  elif [ -f "Gemfile" ]; then
+    command bundle exec rubocop $@
+  else
+    command rubocop $@
   fi
 }
 alias rc='git ls-files -m | xargs ls -1 2>/dev/null | grep '\.rb$' | xargs rubocop'
