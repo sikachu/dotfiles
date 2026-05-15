@@ -25,6 +25,7 @@ _projects() {
   compadd `ls -1 "$HOME/code"`
 }
 compdef _projects p
+alias vc='vimcat'
 alias vcat='vimcat'
 
 # Foolproof
