@@ -45,6 +45,11 @@ alias gb='git branch'
 alias gba='git branch -a'
 alias gc='git commit -v'
 alias gfu='git commit --fixup'
+gfuu() {
+  GIT_EDITOR=true
+  SHA=`git rev-parse $1`
+  git commit --fixup $SHA && GIT_EDITOR=true git rebase -i $SHA~1
+}
 alias gca='git commit -a'
 alias gcam='git commit -a -m'
 alias gcf='git commit --amend --verbose'
