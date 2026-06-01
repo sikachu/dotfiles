@@ -63,7 +63,7 @@ dotfiles_warnings() {
 }
 
 # Set fancy prompt
-export PS1='┌(—＿＿— ×)$(dotfiles_warnings)$(kube_ps1)
+export PS1='┌(—＿＿— X)$(dotfiles_warnings)$(kube_ps1)
 $(long_prompt)'
 
 # This function will be called by zsh before it runs a command.
