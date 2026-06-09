@@ -139,3 +139,8 @@ if [ -d "$HOME/.zshrc.d" ]; then
     source "$file"
   done
 fi
+
+# Setup mise
+if [[ -d "$HOME/.local/share/mise" ]]; then
+  eval "$(mise activate zsh)"
+fi
