@@ -95,9 +95,6 @@ export HISTSIZE=5000
 export SAVEHIST=5000
 export HISTFILE=~/.zsh_history
 
-# Setup RVM
-if [[ -s ~/.rvm/scripts/rvm ]] ; then source ~/.rvm/scripts/rvm ; fi
-
 # Setup rbenv
 if [[ -d ~/.rbenv ]]; then
   if [[ -s /opt/homebrew/bin/rbenv ]]; then
