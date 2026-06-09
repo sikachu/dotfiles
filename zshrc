@@ -95,15 +95,6 @@ export HISTSIZE=5000
 export SAVEHIST=5000
 export HISTFILE=~/.zsh_history
 
-# Setup rbenv
-if [[ -d ~/.rbenv ]]; then
-  if [[ -s /opt/homebrew/bin/rbenv ]]; then
-    eval "$(/opt/homebrew/bin/rbenv init - zsh)"
-  else
-    eval "$(~/.rbenv/bin/rbenv init - zsh)"
-  fi
-fi
-
 # Setup paths
 export PATH="$HOME/.rd/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$PATH"
