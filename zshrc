@@ -107,7 +107,12 @@ eval "$(direnv hook zsh)"
 export TF_PLUGIN_CACHE_DIR="$HOME/.terraform.d/plugin-cache"
 
 # Setup fzf
-export FZF_DEFAULT_COMMAND='ag -g ""'
+if command -v fd >/dev/null 2>&1; then
+  export FZF_DEFAULT_COMMAND="fd --type f --hidden --exclude .git"
+elif command -v fdfind >/dev/null 2>&1; then
+  export FZF_DEFAULT_COMMAND="fdfind --type f --hidden --exclude .git"
+fi
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Add kubetl autocompletion
