@@ -100,9 +100,6 @@ export PATH="$HOME/.rd/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 
-# Setup direnv hook
-eval "$(direnv hook zsh)"
-
 # Setup global plugin cache for terraform
 export TF_PLUGIN_CACHE_DIR="$HOME/.terraform.d/plugin-cache"
 
