@@ -1,7 +1,7 @@
 [settings]
 
 [settings.ruby]
-compile = false
+compile = true
 
 [tools]
 ruby = "4.0.5"
